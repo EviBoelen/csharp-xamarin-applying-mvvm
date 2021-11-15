@@ -10,9 +10,7 @@ namespace Roster.Client.Views
         {
             InitializeComponent();
 
-            this.BindingContext = this.Title = "Roster App";
-            //label = new Label();
-            //label.SetBinding<HomeView>(Label.TextProperty, hv => hv.Title, mode: BindingMode.OneWay);
+            Title = "Roster App";
         }
     }
 }

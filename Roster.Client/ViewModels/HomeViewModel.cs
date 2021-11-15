@@ -12,7 +12,8 @@ namespace Roster.Client.ViewModels
     public class HomeViewModel : INotifyPropertyChanged
     {
         private string _title = "Roster App";
-        public ObservableCollection<Person> People;
+
+        public ObservableCollection<Person> People { get; set; }
         public string Title
         {
             get { return _title; }

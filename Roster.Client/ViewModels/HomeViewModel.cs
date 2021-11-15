@@ -14,6 +14,7 @@ namespace Roster.Client.ViewModels
         private string _title = "Roster App";
 
         public ObservableCollection<Person> People { get; set; }
+
         public string Title
         {
             get { return _title; }

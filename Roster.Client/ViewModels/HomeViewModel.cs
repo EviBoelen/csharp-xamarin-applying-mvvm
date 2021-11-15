@@ -12,7 +12,7 @@ namespace Roster.Client.ViewModels
     public class HomeViewModel : INotifyPropertyChanged
     {
         private string _title = "Roster App";
-        public Person people;
+        public ObservableCollection<Person> People;
         public string Title
         {
             get { return _title; }
@@ -39,7 +39,7 @@ namespace Roster.Client.ViewModels
 
         private void FillPeopleCollection()
         {
-            people.People = new ObservableCollection<Person>()
+            People = new ObservableCollection<Person>()
             {
                 new Person { Name = "Delores Feil", Company = "Legros Group" },
                 new Person { Name = "Ann Zboncak", Company = "Ledner - Ferry" },

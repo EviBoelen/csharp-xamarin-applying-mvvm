@@ -9,24 +9,34 @@ namespace Roster.Client.ViewModels
 {
     public class HomeViewModel : INotifyPropertyChanged
     {
-        public string Title { get; set; } = "Roster App";
+        private string _title = "Roster App";
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                PropertyChanged(this, new PropertyChangedEventArgs(nameof(Title)));
+            }
+        }
         public Command UpdateApplicationCommand { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public HomeViewModel()
         {
-            UpdateApplicationCommand = new Command(
-                execute: () => {
-                    Title = "RosterApp (v2.0)";
-                    NotifyPropertyChanged();
-            });
+            UpdateApplicationCommand = new Command(UpdateTitle);
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private void UpdateTitle()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            Title = "Roster App (v2.0)";
         }
-        
+
+        //private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
+
     }
 }
